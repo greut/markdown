@@ -23,8 +23,8 @@ License: BSD (see LICENSE.md for details).
 
 
 from setuptools import setup
-from markdown import __version__, __version_info__
 
+markdown = __import__('markdown')
 
 # Get development Status for classifiers
 dev_status_map = {
@@ -34,7 +34,7 @@ dev_status_map = {
     'rc':    '4 - Beta',
     'final': '5 - Production/Stable'
 }
-DEVSTATUS = dev_status_map[__version_info__[3]]
+DEVSTATUS = dev_status_map[markdown.__version_info__[3]]
 
 # The command line script name.  Currently set to "markdown_py" so as not to
 # conflict with the perl implimentation (which uses "markdown").
@@ -64,9 +64,9 @@ the `bug tracker`_.
 
 setup(
     name='Markdown',
-    version=__version__,
+    version=markdown.__version__,
     url='https://Python-Markdown.github.io/',
-    download_url='http://pypi.python.org/packages/source/M/Markdown/Markdown-%s-py2.py3-none-any.whl' % __version__,
+    download_url='http://pypi.python.org/packages/source/M/Markdown/Markdown-%s-py2.py3-none-any.whl' % markdown.__version__,
     description='Python implementation of Markdown.',
     long_description=long_description,
     author='Manfred Stienstra, Yuri takhteyev and Waylan limberg',
